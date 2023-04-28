@@ -26,10 +26,7 @@ const db_user = (sequelize, Sequelize) => {
         web_token: {
             type: Sequelize.STRING,
         },
-    }, {
-        createdAt: true,
-        upadteAt: true,
-        timestamp: true,
     });
+    return user;
 };
 exports.default = db_user;

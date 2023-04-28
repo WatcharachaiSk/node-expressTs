@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
 import db_user from "./schema/user/user";
+import db_tblcar from "./schema/tblcar/tblcar";
 dotenv.config();
 
 const sequelizeData: any = {
@@ -22,6 +23,8 @@ const sequelize = new Sequelize(
     define: {
       charset: "utf8",
       collate: "utf8_general_ci",
+      createdAt: false,
+      updatedAt: false,
     },
     operatorsAliases: operatorsAliases,
     timezone: "+07:00",
@@ -33,5 +36,8 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.Users = db_user(sequelize, Sequelize);
+db.Tblcar = db_tblcar(sequelize, Sequelize);
+
+export const { Users, Tblcar } = db;
 
 export default db;

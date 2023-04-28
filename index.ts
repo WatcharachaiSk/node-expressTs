@@ -9,7 +9,8 @@ const app: Express = express();
 const port = process.env.PORT;
 
 app.use(cors());
-app.use(express.json({}));
+const jsonExtended: any = false;
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post("/", (req: Request, res: Response) => {
